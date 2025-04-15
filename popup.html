@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FishNoval</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    .status {
+      margin: 10px 0;
+      padding: 5px;
+      border-radius: 4px;
+      display: none;
+    }
+    .success {
+      background-color: #dff0d8;
+      color: #3c763d;
+    }
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+    }
+    .novel-path {
+      word-break: break-all;
+      padding: 8px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .shortcuts {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+    }
+    .shortcut-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+      padding: 5px;
+    }
+    .shortcut-key {
+      background-color: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .shortcut-desc {
+      color: #666;
+    }
+    .progress-container {
+      width: 100%;
+      background-color: #f1f1f1;
+      border-radius: 4px;
+      margin: 10px 0;
+      display: none;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 20px;
+      background-color: #4CAF50;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+      transition: width 0.3s ease;
+    }
+    .file-info {
+      margin: 5px 0;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="file" id="novelFile" accept=".txt" style="display: none">
+    <button id="selectFile" class="button">选择小说文件</button>
+    <button id="selectElement" class="button">选择显示位置</button>
+    
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar">0%</div>
+    </div>
+    <div class="file-info" id="fileInfo"></div>
+    
+    <div id="novelPath" class="novel-path" style="display: none">
+      <strong>当前小说：</strong>
+      <span id="pathText"></span>
+    </div>
+    
+    <div id="status" class="status" style="display: none"></div>
+    
+    <div class="shortcuts">
+      <h3>快捷键说明</h3>
+      <div class="shortcut-item">
+        <span class="shortcut-key">Alt + Shift + →</span>
+        <span class="shortcut-desc">下一页</span>
+      </div>
+      <div class="shortcut-item">
+        <span class="shortcut-key">Alt + Shift + ←</span>
+        <span class="shortcut-desc">上一页</span>
+      </div>
+      <div class="shortcut-item">
+        <span class="shortcut-key">Alt + Shift + J</span>
+        <span class="shortcut-desc">开启显示</span>
+      </div>
+      <div class="shortcut-item">
+        <span class="shortcut-key">Alt + Shift + K</span>
+        <span class="shortcut-desc">关闭显示</span>
+      </div>
+    </div>
+  </div>
+  <script src="lz-string.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html> 

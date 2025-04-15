@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "FishNoval",
+  "version": "1.0",
+  "description": "一个简单的小说阅读器扩展",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lz-string.min.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lz-string.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "next_page": {
+      "suggested_key": {
+        "default": "Alt+Shift+Right"
+      },
+      "description": "翻到下一页"
+    },
+    "prev_page": {
+      "suggested_key": {
+        "default": "Alt+Shift+Left"
+      },
+      "description": "翻到上一页"
+    },
+    "enable_feature": {
+      "suggested_key": {
+        "default": "Alt+Shift+J"
+      },
+      "description": "开启小说显示"
+    },
+    "disable_feature": {
+      "suggested_key": {
+        "default": "Alt+Shift+K"
+      },
+      "description": "关闭小说显示"
+    }
+  }
+} 
